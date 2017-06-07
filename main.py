@@ -1,15 +1,15 @@
 from tkinter import *
 from point_set import PointSet
 from random_point_generator import cluster4_point
-import draw_functions
+from draw_functions import draw_point
 from centroid_k_mean import k_mean
 from parameters import *
 
-root = Tk()
-can = Canvas(root, width=WIN_SIZE, height=WIN_SIZE)
-can.pack()
-
 if __name__ == "__main__":
+    """
+    Number of points generated, window size and number of cluster can be modified in parameter file
+    """
+
     # Declare point set and add point in it
     ps = PointSet()
     for i in range(0, NB_POINTS):
@@ -19,12 +19,12 @@ if __name__ == "__main__":
     # Call K_Mean algorithm
     cluster_set = k_mean(ps, NB_CLUSTER)
 
-    # Draw points
+    # Draw points (in black)
     for point in ps:
-        can.draw_point(point)
+        draw_point(point)
 
-    # Draw Clusters centroids
+    # Draw Clusters centroids (in red)
     for cluster in cluster_set:
-        can.draw_point(cluster.centroid)
+        draw_point(cluster.centroid)
 
     mainloop()
