@@ -4,10 +4,12 @@ import random
 
 
 def random_point():
+    # Generate random point
     return Point(random.randint(0, WIN_SIZE), random.randint(0, WIN_SIZE))
 
 
 def cluster4_point():
+    # Generate random points but builds 4 clusters
     x = random.randint(0, WIN_SIZE)
     y = random.randint(0, WIN_SIZE)
     if x < WIN_SIZE / 4 or (x > WIN_SIZE / 2 and x < WIN_SIZE * 3 / 4):
